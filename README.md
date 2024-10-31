@@ -8,3 +8,12 @@ Docker mariadb
   -e MARIADB_PASSWORD=root \
   -p 3306:3306 \
   mariadb:latest`
+
+modelo
+`{
+  "name": "Lalau",
+  "email": "lalau@gmail.com",
+  "password": "asdasdasd",
+  "birthAt": "1998-03-29"
+}
+`

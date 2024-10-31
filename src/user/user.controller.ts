@@ -27,36 +27,18 @@ export class UserController {
   }
 
   @Post()
-  async create(@Body() { name, email, password }: CreateUserDTO) {
-    return this.userService.create({ name, email, password });
+  async create(@Body() data: CreateUserDTO) {
+    return this.userService.create(data);
   }
 
   // Tem que mandar tudo
   @Put(':id')
-  async update(
-    @Body() { name, email, password }: UpdateUserDTO,
-    @Param() param,
-  ) {
-    return {
-      method: 'PUT',
-      name,
-      email,
-      password,
-      param,
-    };
+  async update(@Body() data: UpdateUserDTO, @Param('id') id) {
+    return this.userService.update(id, data);
   }
   @Patch(':id')
-  async patch(
-    @Body() { name, email, password }: UpdatePatchUserDTO,
-    @Param() param,
-  ) {
-    return {
-      method: 'Patch',
-      name,
-      email,
-      password,
-      param,
-    };
+  async patch(@Body() data: UpdatePatchUserDTO, @Param('id') id) {
+    return this.userService.patch(id, data);
   }
 
   @Delete(':id')
