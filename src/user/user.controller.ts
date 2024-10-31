@@ -18,12 +18,12 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
   @Get()
   async list() {
-    return { users: [] };
+    return this.userService.list();
   }
 
   @Get(':id')
-  async show(@Param() param) {
-    return { user: {}, param };
+  async show(@Param('id') id: string) {
+    return this.userService.show(id);
   }
 
   @Post()
