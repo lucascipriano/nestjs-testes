@@ -31,4 +31,8 @@ export class AuthController {
   async resetPassword(@Body() { password, token }: AuthResetDTO) {
     return this.authService.resetPassowrd(password, token);
   }
+  @Post('me')
+  async me(@Body() body) {
+    return this.authService.checkToken(body.token);
+  }
 }
